@@ -1,3 +1,4 @@
+from __future__ import division
 import xml.etree.ElementTree as et
 import sys
 import re
