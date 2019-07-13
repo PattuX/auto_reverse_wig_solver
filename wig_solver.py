@@ -70,10 +70,14 @@ r = '[ >\n]\d{6}[ <\n]'
 for child in root.findall(xsi+'wpt'):
     gccode = child.find(xsi+'name').text
     cache = child.find(groundspeak+'cache')
+    if cache is None:
+        continue
     gcname = cache.find(groundspeak+'name').text
     gctype = cache.find(groundspeak+'type').text
     if gctype == 'Wherigo Cache':
         description = cache.find(groundspeak+'short_description').text
+        if description is None:
+            description = ""
         description += cache.find(groundspeak+'long_description').text
         dl = description.lower()
         if 'waldmeister' in dl or 'reverse' in dl or 'wherigo.com/cartridge/details.aspx?CGUID=dcdcd2ff-c171-4487-93bc-678f6d03ac4f' in dl:
