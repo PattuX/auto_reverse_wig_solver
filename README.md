@@ -6,3 +6,5 @@ Find all Reverse Wherigos in a .gpx file and write their final coordinates to th
 ```py wig_solver.py <gpx-file>```
 
 Currently this overwrites the gpx file. The old .gpx will be lost in the process. I'd recommend saving a copy of your .gpx somewhere in case something goes wrong.
+
+Contents of the .gpx file may include caches other than reverse WIGs, those stay untouched.
