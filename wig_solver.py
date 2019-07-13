@@ -82,9 +82,14 @@ for child in root.findall(xsi+'wpt'):
                 for i, code in enumerate(codes):
                     codes[i] = ''.join(i for i in code if i.isdigit())
                 lat, lon = codes_to_coords(codes[0], codes[1], codes[2])
-                child.attrib['lat'] = str(lat)
-                child.attrib['lon'] = str(lon)
-                print(gccode, gcname, 'is at', lat, lon)
+                if abs(int(child.attrib['lat']) - lat) < 1
+                    and abs(int(child.attrib['lon']) - lon) < 1:
+                    child.attrib['lat'] = str(lat)
+                    child.attrib['lon'] = str(lon)
+                    print(gccode, gcname, 'is at', lat, lon)
+                else:
+                    print('Something went wrong while scanning', gccode, '(' + str(gcname) + '). Assuming coordinates', lat, lon, 'are wrong.')
+                    
         #else:
         #    print(gccode, 'is probably not a reverse WIG (' + str(gcname) + ')' )
 
