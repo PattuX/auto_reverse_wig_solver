@@ -18,6 +18,8 @@ def codes_to_coords(a, b, c):
     elif (a % 1000 - a % 100) / 100 == 4:
 	    lat_sign = -1
 	    lon_sign = -1
+    else:
+        return 0, 0
     if ((c % 100000 - c % 10000) / 10000 + (c % 100 - c % 10) / 10) % 2 == 0:
 	    lat = lat_sign * ( \
 		(a % 10000 - a % 1000) / 100 \
