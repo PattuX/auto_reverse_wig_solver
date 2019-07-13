@@ -82,8 +82,7 @@ for child in root.findall(xsi+'wpt'):
                 for i, code in enumerate(codes):
                     codes[i] = ''.join(i for i in code if i.isdigit())
                 lat, lon = codes_to_coords(codes[0], codes[1], codes[2])
-                if abs(int(child.attrib['lat']) - lat) < 1
-                    and abs(int(child.attrib['lon']) - lon) < 1:
+                if abs(float(child.attrib['lat']) - lat) < 1 and abs(float(child.attrib['lon']) - lon) < 1:
                     child.attrib['lat'] = str(lat)
                     child.attrib['lon'] = str(lon)
                     print(gccode, gcname, 'is at', lat, lon)
